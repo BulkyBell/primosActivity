@@ -9,22 +9,22 @@ class primosActivity : AppCompatActivity(){
     
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        setContentView(R.layout.primosActivity)
+        setContentView(R.layout.primos_activity)
         findViewById<Button>(R.id.botonCalcular).setOnClickListener(){
-
-
-
-            var number = 0
-            var elementos = primos(number)
+            //var numeros = findViewById<editText>(R.id.editTextNumber)
+            var number = 15
+            var elementos = calcularPrimos(number)
             println(elementos)
 
-
-
         }
-        finish()
+
+        /*findViewById<Button>(R.id.cerrarButton).setOnClickListener{
+            turnBack()
+        }*/
+
     }
 
-    private fun primos(n:Int):ArrayList<Int>{
+    private fun calcularPrimos(n:Int):ArrayList<Int>{
         var elementos=ArrayList<Int>()
 
         for (i in 1 .. n){
@@ -33,6 +33,7 @@ class primosActivity : AppCompatActivity(){
         }
         return elementos
     }
+
 
     private fun calcularPrimos(num:Int, divisor: Int):Boolean{
         if (divisor==1){
@@ -43,6 +44,12 @@ class primosActivity : AppCompatActivity(){
         }
         else{
             return calcularPrimos(num, num-1)
+        }
+    }
+
+    private fun turnBack(){
+        findViewById<Button>(R.id.cerrarButton).setOnClickListener{
+            finish()
         }
     }
 }
