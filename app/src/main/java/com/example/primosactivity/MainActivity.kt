@@ -1,10 +1,8 @@
 package com.example.primosactivity
 
 import android.content.Intent
-import android.icu.number.IntegerWidth
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 
 class MainActivity : AppCompatActivity() {

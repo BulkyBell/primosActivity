@@ -1,39 +1,35 @@
 package com.example.primosactivity
 
-import android.os.Bundle
-import android.os.PersistableBundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 
-class primosActivity : AppCompatActivity(){
-    
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        setContentView(R.layout.primos_activity)
-        findViewById<Button>(R.id.botonCalcular).setOnClickListener(){
-            //var numeros = findViewById<editText>(R.id.editTextNumber)
-            var number = 15
-            var elementos = calcularPrimos(number)
-            println(elementos)
+class primosActivity : AppCompatActivity() {
 
+    private var elementos=ArrayList<Int>()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_primos)
+
+        findViewById<Button>(R.id.cerrarButton).setOnClickListener{
+            finish()
         }
 
-        /*findViewById<Button>(R.id.cerrarButton).setOnClickListener{
-            turnBack()
-        }*/
-
+        findViewById<Button>(R.id.calcularButton).setOnClickListener{
+            var numero: Int = Integer.parseInt(findViewById<TextView>(R.id.editTextNumber).text.toString())
+            calcularPrimos(numero);
+            println(elementos.toString())
+        }
     }
 
     private fun calcularPrimos(n:Int):ArrayList<Int>{
-        var elementos=ArrayList<Int>()
-
-        for (i in 1 .. n){
+        for (i in 2 .. n){
             if (calcularPrimos(i, i-1))
                 elementos.add(i)
         }
         return elementos
     }
-
 
     private fun calcularPrimos(num:Int, divisor: Int):Boolean{
         if (divisor==1){
@@ -43,13 +39,8 @@ class primosActivity : AppCompatActivity(){
             return false
         }
         else{
-            return calcularPrimos(num, num-1)
+            return calcularPrimos(num, divisor-1)
         }
     }
 
-    private fun turnBack(){
-        findViewById<Button>(R.id.cerrarButton).setOnClickListener{
-            finish()
-        }
-    }
 }
