@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 
-class primosActivity : AppCompatActivity() {
+class `SCR-primosXActivity` : AppCompatActivity() {
 
     private var elementos=ArrayList<Int>()
     override fun onCreate(savedInstanceState: Bundle?) {
