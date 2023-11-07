@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 
-class `SCR-primosXActivity` : AppCompatActivity() {
+class SCRprimosXActivity : AppCompatActivity() {
 
     private var elementos=ArrayList<Int>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_primos)
+        setContentView(R.layout.scrprimosxactivity)
 
         findViewById<Button>(R.id.cerrarButton).setOnClickListener{
             finish()
